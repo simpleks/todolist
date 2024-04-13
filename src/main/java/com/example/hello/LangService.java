@@ -13,8 +13,9 @@ public class LangService {
     LangService(LangRepository repository) {
         this.repository = repository;
     }
-    List<LangDTO> findAll(){
-        return  repository
+
+    List<LangDTO> findAll() {
+        return repository
                 .findAll()
                 .stream()
                 .map(LangDTO::new)

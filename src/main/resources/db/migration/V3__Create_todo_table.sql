@@ -4,6 +4,6 @@ create table todo (
 
     taskTODO varchar(100) not null,
 
-    done BIT
+    done BOOLEAN
 
 );

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//@WebServlet(name = "Lang", urlPatterns = {"/chuj/langs"}) //jak będzie localhost:8080/chuj/"WYJEBANE CO" wyświetli się resp.getWrtitter()
 @RestController
 @RequestMapping("/api")
 class LangServlet {
@@ -23,7 +22,7 @@ class LangServlet {
 
     @GetMapping("/langs")
     ResponseEntity<List<LangDTO>> findAllLangs() {
-        logger.info("Got request ");
+        logger.info("Got request");
         return ResponseEntity.ok(service.findAll());
     }
 }

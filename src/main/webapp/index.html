@@ -43,17 +43,13 @@
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ text: todoText.value })
+            body: JSON.stringify({ taskTODO: todoText.value })   <!--taskTODO bo takiej wartości oczekuje baza danych  -->
         })
           .then(processOkResponse)
           .then(createNewTodo)
           .then(() => todoText.value = '')
           .catch(console.warn);
       });
-
-      // TODO: remove
-      createNewTodo({ id: 1, text: 'mock 1', done: true });
-      createNewTodo({ id: 2, text: 'mock 2', done: false });
 
       function createNewTodo(todo) {
         const label = document.createElement('label');
@@ -70,7 +66,7 @@
               .catch(console.warn);
           });
         label.appendChild(checkbox);
-        label.appendChild(document.createTextNode(` ${todo.text}`));
+        label.appendChild(document.createTextNode(` ${todo.taskTODO}`));
         document.getElementById('allTodos').appendChild(label);
       }
 

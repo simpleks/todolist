@@ -8,24 +8,19 @@ import java.util.Optional;
 
 @Service
 public class HelloService {
-    public static final String FALLBACK_NAME = "world"; // fajny skrót ctrl + alt + c  // jeśli url będzie bez parametrów
-    //to wyświetli się deflautowo język ang z napisem hello world
+    static final String FALLBACK_NAME = "world";
 
-    static final Lang FALLBACK_LANG = new Lang(1, "Hello [en]", "en"); // fajny skrót ctrl + alt + c
-    //jeśli lang wyjdzie poza zakres to wyświetli się hello [en] + fallback_name
+    static final Lang FALLBACK_LANG = new Lang(1, "Hello [en]", "en");
     private final Logger logger = LoggerFactory.getLogger(HelloService.class);
-
     private LangRepository repository;
 
     HelloService(LangRepository repository) {
         this.repository = repository;
     }
 
-    //http://localhost:8080/chuj?name=sperma
-
     public String prepareGreeting(String name, Integer langId) {
         langId = Optional.ofNullable(langId).orElse(FALLBACK_LANG.getId());
-        var welcomeMsg = repository.findById(langId).orElse(FALLBACK_LANG).getWelcomeMsg();
+        var welcomeMsg = repository.findById(langId).orElse(FALLBACK_LANG).getwelcomeMsg();
         var nameToWelcome = Optional.ofNullable(name).orElse(FALLBACK_NAME);
         return welcomeMsg + " " + nameToWelcome + " !";
     }

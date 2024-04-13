@@ -3,33 +3,30 @@ package com.example.hello;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.Id;
-//import javax.persistence.Table;
 
 @Entity
 @Table(name = "languages")
 class Lang {
     @Id
-    @GeneratedValue(generator="inc")
-    @GenericGenerator(name="inc", strategy = "increment")
+    @GeneratedValue(generator = "inc")
+    @GenericGenerator(name = "inc", strategy = "increment")
 
     private Integer id;
-    @Column(name = "WelcomeMsg")
-    private String WelcomeMsg;
+    @Column(name = "welcomemsg") //todo: WAŻNE w adnotacji kolumny pisz z małcyh
+    private String welcomeMsg;
     private String code;
 
     /**
-    *Hibernate (JPA) needs it
+     * Hibernate (JPA) needs it
      */
     @SuppressWarnings("unused")
     Lang() {
 
     }
-    public Lang(Integer id, String WelcomeMsg, String code) {
+
+    public Lang(Integer id, String welcomeMsg, String code) {
         this.id = id;
-        this.WelcomeMsg = WelcomeMsg;
+        this.welcomeMsg = welcomeMsg;
         this.code = code;
     }
 
@@ -37,12 +34,12 @@ class Lang {
         return id;
     }
 
-    public String getWelcomeMsg() {
-        return WelcomeMsg;
+    public String getwelcomeMsg() {
+        return welcomeMsg;
     }
 
-    public void setWelcomeMsg(String WelcomeMsg) {
-        this.WelcomeMsg = WelcomeMsg;
+    public void setwelcomeMsg(String WelcomeMsg) {
+        this.welcomeMsg = welcomeMsg;
     }
 
     public String getCode() {

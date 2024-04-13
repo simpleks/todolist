@@ -11,26 +11,20 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "todo")
 class Todo {
     @Id
-    @GeneratedValue(generator="inc")
-    @GenericGenerator(name="inc", strategy = "increment")
-
+    @GeneratedValue(generator = "inc")
+    @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
-    //    @Column(name = "taskTODO")
     private String taskTODO;
     private boolean done;
 
     /**
-     *Hibernate (JPA) needs it
+     * Hibernate (JPA) needs it
      */
     @SuppressWarnings("unused")
     Todo() {
 
     }
-    public Todo(Integer id, String taskTODO, boolean done) {
-        this.id = id;
-        this.taskTODO = taskTODO;
-        this.done = done;
-    }
+
 
     public void setId(Integer id) {
         this.id = id;
@@ -56,8 +50,5 @@ class Todo {
         this.taskTODO = taskTODO;
     }
 
-    public boolean getdone() {
-        return done;
-    }
 
 }
