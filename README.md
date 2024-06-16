@@ -6,7 +6,8 @@
 - sql
 - spring boot
 
-Jest to prosta aplikacja spring boot'owa która jest todo list \
+Jest to prosta aplikacja spring boot'owa  to do list.  
+Aplikacja jest dostępna na porice 8080 pod adresem ``localhost:8080``  
 Aplikacja posiada prostą bazę danych stworzoną przy pomocy bazdy danych H2 oraz flyway'a z dodatkiem hibernate
 
 Ta aplikacja jest moją pierwszą storzoną przy urzyciu spring boota
